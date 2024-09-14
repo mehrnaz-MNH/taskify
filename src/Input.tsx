@@ -3,14 +3,15 @@ import React from 'react'
 
 interface Props {
     todo : string ,
-    setTodo : React.Dispatch<React.SetStateAction<string>>
+    setTodo : React.Dispatch<React.SetStateAction<string>> ,
+    handleAdd : ( e : React.FormEvent) => void
 }
 
-export const Input : React.FC<Props> = ({todo , setTodo}) => {
+export const Input : React.FC<Props> = ({todo , setTodo , handleAdd}) => {
 
   return (
     <div>
-        <form>
+        <form onSubmit={(e) => handleAdd(e)}>
             <input
             placeholder='enter a task'
             type="text"
